@@ -13,7 +13,7 @@ export default function AppNavigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={Home} options={{ header: () => null }} />
         <Stack.Screen name="Game" component={Game} />
         <Stack.Screen name="Success" component={Success} />
         <Stack.Screen name="Ranking" component={Success} />
