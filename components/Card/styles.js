@@ -11,7 +11,7 @@ export const Content = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: ${({ selected }) => selected ? styles.placeholderTextColor : ' rgba(255, 255, 255, .2)'};;
+  background-color: ${({ selected }) => selected ? styles.placeholderTextColor : styles.primaryLighterColor};
   border-radius: 3px;
 `;
 
