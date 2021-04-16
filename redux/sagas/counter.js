@@ -4,6 +4,6 @@ function* tick(action) {
   yield put({ type: 'increment' })
 }
 
-export default function* helloSaga() {
+export default function* gameSaga() {
   yield takeEvery('tick', tick)
 }
