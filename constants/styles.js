@@ -1,6 +1,6 @@
 export default {
   primaryColor: '#534292',
   primaryLightColor: '#7763bf',
-  placeholderTextColor: '#aaa'
+  placeholderTextColor: '#aaa',
   textColor: '#fff',
 }
