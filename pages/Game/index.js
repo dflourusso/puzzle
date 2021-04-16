@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Container, RoundsText } from './styles'
 import Cards from '../../components/Cards'
 
 export default function Game({ navigation }) {
+  const dispatch = useDispatch()
+  const cards = useSelector(({ game }) => game.cards)
+
+  useEffect(() => {
+    dispatch({ type: 'game/new' })
+  }, [])
+
   return (
     <Container>
       <StatusBar style="auto" />
       <RoundsText>Rodadas: 0</RoundsText>
-      <Cards />
+      <Cards cards={cards}/>
     </Container>
   )
 }
