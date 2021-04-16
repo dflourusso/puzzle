@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +8,12 @@ import Cards from '../../components/Cards'
 
 export default function Game({ navigation }) {
   const dispatch = useDispatch()
-  const cards = useSelector(({ game }) => game.cards)
+  const cards = useSelector((state) => state.game.cards)
+
+  const selectCard = (card) => {
+    dispatch({ type: 'game/selectCard', payload: card })
+
+  }
 
   useEffect(() => {
     dispatch({ type: 'game/new' })
@@ -18,7 +23,7 @@ export default function Game({ navigation }) {
     <Container>
       <StatusBar style="auto" />
       <RoundsText>Rodadas: 0</RoundsText>
-      <Cards cards={cards}/>
+      <Cards cards={cards} onPressCard={selectCard} />
     </Container>
   )
 }

@@ -7,10 +7,10 @@ import styles from '../../constants/styles'
 
 const ICON_SIZE = Dimensions.get('window').width / 5
 
-export default function Card({name}) {
-  return <Container>
-    <Content>
-      <MaterialCommunityIcons name={name} size={ICON_SIZE} color={styles.textColor} />
+export default function Card({ card, onPress }) {
+  return <Container onPress={() => onPress(card)}>
+    <Content selected={card.selected}>
+      <MaterialCommunityIcons name={card.name} size={ICON_SIZE} color={styles.textColor} />
     </Content>
   </Container>
 }
