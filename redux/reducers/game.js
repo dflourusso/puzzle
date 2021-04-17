@@ -1,6 +1,7 @@
 import { updateListItem } from "../helpers"
 
 const initialState = {
+  playerName: 'Daniel',
   cards: [],
   rounds: 0,
   ended: false,

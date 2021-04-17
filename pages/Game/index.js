@@ -11,6 +11,7 @@ export default function Game({ navigation }) {
   const cards = useSelector((state) => state.game.cards)
   const rounds = useSelector((state) => state.game.rounds)
   const ended = useSelector((state) => state.game.ended)
+  const playerName = useSelector((state) => state.game.playerName)
 
   const selectCard = (card) => {
     dispatch({ type: 'game/selectCard', payload: card })
@@ -21,7 +22,7 @@ export default function Game({ navigation }) {
   }, [])
 
   useEffect(() => {
-    if (ended) navigation.navigate('Success')
+    if (ended) navigation.replace('Success', { playerName, rounds })
   }, [ended])
 
   return (
