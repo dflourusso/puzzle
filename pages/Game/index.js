@@ -10,6 +10,7 @@ export default function Game({ navigation }) {
   const dispatch = useDispatch()
   const cards = useSelector((state) => state.game.cards)
   const rounds = useSelector((state) => state.game.rounds)
+  const ended = useSelector((state) => state.game.ended)
 
   const selectCard = (card) => {
     dispatch({ type: 'game/selectCard', payload: card })
@@ -18,6 +19,10 @@ export default function Game({ navigation }) {
   useEffect(() => {
     dispatch({ type: 'game/new' })
   }, [])
+
+  useEffect(() => {
+    if (ended) navigation.navigate('Success')
+  }, [ended])
 
   return (
     <Container>

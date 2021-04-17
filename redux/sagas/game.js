@@ -43,6 +43,7 @@ function* onMatchCards(action) {
 
   if (selectedCards.length === 0) {
     yield put({ type: 'game/end', payload: game })
+    
   }
 }
 
