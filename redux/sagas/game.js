@@ -23,11 +23,13 @@ function* setCards(action) {
 }
 
 function* onCardSelection(action) {
+  if (yield select(state => state.game.selectDisabled)) return
   const cards = yield select(state => state.game.cards)
   const selectedCards = cards.filter(card => card.selected)
 
   if (selectedCards.length === 2) {
-    yield delay(10)
+    yield put({ type: 'game/disableSelection' })
+    yield delay(1000)
     const matchingCards = selectedCards[0].name === selectedCards[1].name
     yield put({ type: 'game/incrementRound' })
     if (matchingCards) {
@@ -35,6 +37,7 @@ function* onCardSelection(action) {
     } else {
       yield put({ type: 'game/removeCardsSelection', payload: selectedCards })
     }
+    yield put({ type: 'game/enableSelection' })
   }
 }
 

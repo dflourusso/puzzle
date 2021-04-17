@@ -4,6 +4,7 @@ const initialState = {
   playerName: '',
   cards: [],
   rounds: 0,
+  selectDisabled: false,
 }
 
 export default function reducer(state = initialState, action) {
@@ -14,8 +15,17 @@ export default function reducer(state = initialState, action) {
       return { ...state, cards: action.payload }
     case 'game/incrementRound':
       return { ...state, rounds: state.rounds + 1 }
+    case 'game/disableSelection':
+      return { ...state, selectDisabled: true }
+    case 'game/enableSelection':
+      return { ...state, selectDisabled: false }
     case 'game/selectCard': {
-      return { ...state, cards: updateListItem(state.cards, { ...action.payload, selected: true }) }
+      if (state.selectDisabled) {
+        return state
+      } else {
+        const cards = updateListItem(state.cards, { ...action.payload, selected: true })
+        return state.selectDisabled ? state : { ...state, cards }
+      }
     }
     case 'game/matchCards': {
       let cards = updateListItem(state.cards, { ...action.payload[0], selected: false, match: true })
