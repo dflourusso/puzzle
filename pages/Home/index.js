@@ -22,7 +22,7 @@ export default function Home({ navigation }) {
       <Title>Jogo da Memória</Title>
       <View>
         <PlayerNameInput onChangeText={playerName => setPlayerName(playerName)} value={playerName} />
-        <Button onPress={newGame}>INICIAR</Button>
+        <Button onPress={newGame} disabled={playerName.length == 0}>INICIAR</Button>
       </View>
       <Button onPress={() => navigation.navigate('Ranking')}>RANKING</Button>
     </Container>

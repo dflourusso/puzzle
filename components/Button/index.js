@@ -3,8 +3,8 @@ import { View } from 'react-native'
 
 import { Container, Text } from './styles'
 
-const Button = ({onPress, children}) => {
-  return <Container onPress={onPress}>
+const Button = ({ onPress, children, disabled }) => {
+  return <Container onPress={onPress} disabled={disabled}>
     <Text>{children}</Text>
   </Container>
 }

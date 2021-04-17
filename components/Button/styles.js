@@ -8,6 +8,7 @@ export const Container = styled.TouchableOpacity`
   border-radius: 5px;
   background-color: ${styles.primaryLightColor};
   height: 40px;
+  opacity: ${({ disabled }) => disabled ? .3 : 1}
 `;
 
 export const Text = styled.Text`
