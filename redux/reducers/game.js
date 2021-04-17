@@ -4,15 +4,12 @@ const initialState = {
   playerName: '',
   cards: [],
   rounds: 0,
-  ended: false,
 }
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case 'game/new':
       return { ...initialState, playerName: action.payload.playerName }
-    case 'game/end':
-      return { ...state, ended: true }
     case 'game/setCards':
       return { ...state, cards: action.payload }
     case 'game/incrementRound':

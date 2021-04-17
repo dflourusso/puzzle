@@ -1,4 +1,5 @@
 import { takeEvery, put, select, delay } from 'redux-saga/effects'
+import * as AppNavigation from '../../navigation/AppNavigation';
 
 function shuffle(array) {
   return array.sort(() => 0.5 - Math.random());
@@ -43,7 +44,7 @@ function* onMatchCards(action) {
 
   if (selectedCards.length === 0) {
     yield put({ type: 'game/end', payload: game })
-    
+    AppNavigation.replace('Success', { playerName: game.playerName, rounds: game.rounds });
   }
 }
 

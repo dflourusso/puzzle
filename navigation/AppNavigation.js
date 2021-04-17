@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, StackActions } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import Home from '../pages/Home'
@@ -10,9 +10,15 @@ import styles from '../constants/styles'
 
 const Stack = createStackNavigator()
 
+export const navigationRef = React.createRef()
+
+export function replace(name, params) {
+  navigationRef.current?.dispatch(StackActions.replace(name, params))
+}
+
 export default function AppNavigation() {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef} >
       <Stack.Navigator screenOptions={{
         headerStyle: {
           backgroundColor: styles.primaryDarkColor,

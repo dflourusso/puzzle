@@ -13,7 +13,6 @@ export default function Game({ navigation }) {
   const dispatch = useDispatch()
   const cards = useSelector((state) => state.game.cards)
   const rounds = useSelector((state) => state.game.rounds)
-  const ended = useSelector((state) => state.game.ended)
   const playerName = useSelector((state) => state.game.playerName)
 
   const selectCard = (card) => {
@@ -23,10 +22,6 @@ export default function Game({ navigation }) {
   useEffect(() => {
     dispatch({ type: 'game/new', payload: { playerName: route.params.playerName } })
   }, [])
-
-  useEffect(() => {
-    if (ended) navigation.replace('Success', { playerName, rounds })
-  }, [ended])
 
   return (
     <SafeAreaView>
