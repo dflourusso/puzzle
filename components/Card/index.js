@@ -11,15 +11,17 @@ export default function Card({ card, onPress }) {
   const iconColor = useMemo(() => {
     if (card.match) return styles.primaryColor
     if (card.selected) return styles.textColor
-    return 'silver'
     return styles.primaryLighterColor
   }, [card])
 
   return <Container onPress={() => onPress(card)}>
     <Content selected={card.selected}>
-      <MaterialCommunityIcons name={card.name} size={ICON_SIZE} color={iconColor} />
+      {
+        card.selected || card.match ?
+          <MaterialCommunityIcons name={card.name} size={ICON_SIZE} color={iconColor} /> :
+          null
+      }
     </Content>
   </Container>
 }
 
- 
