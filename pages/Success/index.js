@@ -20,7 +20,7 @@ export default function Success({ navigation }) {
           <RoundsLabel>RODADAS</RoundsLabel>
         </View>
         <View>
-          <Button onPress={() => navigation.dispatch(StackActions.replace('Game'))}>JOGAR NOVAMENTE</Button>
+          <Button onPress={() => navigation.dispatch(StackActions.replace('Game', { playerName }))}>JOGAR NOVAMENTE</Button>
           <Link style={{ marginTop: 20 }} onPress={() => navigation.dispatch(StackActions.popToTop())}>Início</Link>
         </View>
       </Container>
