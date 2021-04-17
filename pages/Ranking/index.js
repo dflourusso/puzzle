@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import RankingCard from '../../components/RankingCard'
 import RankingEmpty from '../../components/RankingEmpty'
 import Link from '../../components/Link'
+import { SafeAreaView } from '../../components/styles'
 
 
 export default function Ranking({ navigation }) {
@@ -45,18 +46,20 @@ export default function Ranking({ navigation }) {
   );
 
   return (
-    <Container>
-      <StatusBar style="light" animated />
-      <FlatList
-        style={{ flex: 1 }}
-        contentContainerStyle={ranking.length === 0 && { justifyContent: 'center', flex: 1 }}
-        data={ranking}
-        keyExtractor={item => item.playerName}
-        renderItem={renderItem}
-        ListEmptyComponent={<RankingEmpty />}
-        ListFooterComponent={<Link onPress={resetRanking}>Redefinir ranking</Link>}
-        showsVerticalScrollIndicator={false}
-      />
-    </Container>
+    <SafeAreaView>
+      <Container>
+        <StatusBar style="light" animated />
+        <FlatList
+          style={{ flex: 1 }}
+          contentContainerStyle={ranking.length === 0 && { justifyContent: 'center', flex: 1 }}
+          data={ranking}
+          keyExtractor={item => item.playerName}
+          renderItem={renderItem}
+          ListEmptyComponent={<RankingEmpty />}
+          ListFooterComponent={<Link onPress={resetRanking}>Redefinir ranking</Link>}
+          showsVerticalScrollIndicator={false}
+        />
+      </Container>
+    </SafeAreaView>
   )
 }
