@@ -13,7 +13,7 @@ export default function Ranking({ navigation }) {
   useEffect(() => {
     AsyncStorage.getItem('ranking')
       .then(ranking => {
-        if (ranking && ranking.length > 0) setRanking
+        if (ranking) setRanking(JSON.parse(ranking))
       })
   }, [])
 
