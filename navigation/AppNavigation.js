@@ -16,7 +16,7 @@ export default function AppNavigation() {
         <Stack.Screen name="Home" component={Home} options={{ header: () => null }} />
         <Stack.Screen name="Game" component={Game} />
         <Stack.Screen name="Success" component={Success} />
-        <Stack.Screen name="Ranking" component={Success} />
+        <Stack.Screen name="Ranking" component={Ranking} />
       </Stack.Navigator>
     </NavigationContainer>
   )
