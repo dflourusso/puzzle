@@ -18,3 +18,11 @@ cd puzzle
 yarn
 yarn start
 ```
+
+## Screenshots
+
+[Ver screenshots](https://github.com/dflourusso/puzzle/tree/main/screenshots)
+
+## Author
+
+- Daniel Fernando Lourusso
