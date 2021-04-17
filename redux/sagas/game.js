@@ -26,19 +26,28 @@ function* onCardSelection(action) {
   const selectedCards = cards.filter(card => card.selected)
 
   if (selectedCards.length === 2) {
-    yield delay(1000)
+    yield delay(10)
     const matchingCards = selectedCards[0].name === selectedCards[1].name
+    yield put({ type: 'game/incrementRound' })
     if (matchingCards) {
       yield put({ type: 'game/matchCards', payload: selectedCards })
     } else {
       yield put({ type: 'game/removeCardsSelection', payload: selectedCards })
     }
-    yield put({ type: 'game/incrementRound' })
-    
+  }
+}
+
+function* onMatchCards(action) {
+  const game = yield select(state => state.game)
+  const selectedCards = game.cards.filter(card => !card.match)
+
+  if (selectedCards.length === 0) {
+    yield put({ type: 'game/end', payload: game })
   }
 }
 
 export default function* helloSaga() {
   yield takeEvery('game/new', setCards)
   yield takeEvery('game/selectCard', onCardSelection)
+  yield takeEvery('game/matchCards', onMatchCards)
 }
