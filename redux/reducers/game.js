@@ -1,7 +1,7 @@
 import { updateListItem } from "../helpers"
 
 const initialState = {
-  playerName: 'Daniel',
+  playerName: '',
   cards: [],
   rounds: 0,
   ended: false,
@@ -10,7 +10,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case 'game/new':
-      return { ...initialState }
+      return { ...initialState, playerName: action.payload.playerName }
     case 'game/end':
       return { ...state, ended: true }
     case 'game/setCards':
