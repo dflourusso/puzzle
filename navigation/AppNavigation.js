@@ -6,16 +6,28 @@ import Home from '../pages/Home'
 import Game from '../pages/Game'
 import Success from '../pages/Success'
 import Ranking from '../pages/Ranking'
+import styles from '../constants/styles'
 
 const Stack = createStackNavigator()
 
 export default function AppNavigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={{ header: () => null }} />
-        <Stack.Screen name="Game" component={Game} />
-        <Stack.Screen name="Success" component={Success} />
+      <Stack.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: styles.primaryDarkColor,
+          shadowColor: 'transparent', // ios
+          elevation: 0  // android
+        },
+        headerTintColor: styles.textColor,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        gestureEnabled: false,
+      }}>
+        <Stack.Screen name="Home" component={Home} options={{ title: 'Início', header: () => null }} />
+        <Stack.Screen name="Game" component={Game} options={{ header: () => null }} />
+        <Stack.Screen name="Success" component={Success} options={{ header: () => null }} />
         <Stack.Screen name="Ranking" component={Ranking} />
       </Stack.Navigator>
     </NavigationContainer>

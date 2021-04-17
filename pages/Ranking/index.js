@@ -23,7 +23,7 @@ export default function Ranking({ navigation }) {
 
   return (
     <Container>
-      <StatusBar style="auto" />
+      <StatusBar style="light" animated />
       <FlatList
         style={{ flex: 1, }}
         contentContainerStyle={ranking.length === 0 && { justifyContent: 'center', flex: 1 }}

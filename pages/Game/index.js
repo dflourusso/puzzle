@@ -29,7 +29,7 @@ export default function Game({ navigation }) {
 
   return (
     <Container>
-      <StatusBar style="auto" />
+      <StatusBar style="light" animated />
       <RoundsText>Rodadas: {rounds}</RoundsText>
       <Cards cards={cards} onPressCard={selectCard} />
     </Container>

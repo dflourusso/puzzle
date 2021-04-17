@@ -11,7 +11,7 @@ export default function Success({ navigation }) {
   const { playerName, rounds } = route.params
   return (
     <Container>
-      <StatusBar style="auto" />
+      <StatusBar style="light" animated />
       <Title>Parabéns {playerName}</Title>
       <View>
         <Rounds>{rounds}</Rounds>

@@ -18,13 +18,13 @@ export default function Home({ navigation }) {
 
   return (
     <Container>
+      <StatusBar style="light" animated />
       <Title>Jogo da Memória</Title>
       <View>
         <PlayerNameInput onChangeText={playerName => setPlayerName(playerName)} value={playerName} />
         <Button onPress={newGame}>INICIAR</Button>
       </View>
       <Button onPress={() => navigation.navigate('Ranking')}>RANKING</Button>
-      <StatusBar style="light" animated />
     </Container>
   )
 }
