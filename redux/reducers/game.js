@@ -6,7 +6,10 @@ const initialState = {
 }
 
 export default function reducer(state = initialState, action) {
+  console.log(action.type)
   switch (action.type) {
+    case 'game/new':
+      return { ...initialState }
     case 'game/setCards':
       return { ...state, cards: action.payload }
     case 'game/incrementRound':
