@@ -9,7 +9,6 @@ import { SafeAreaView } from '../../components/styles'
 export default function Home({ navigation }) {
   const [playerName, setPlayerName] = useState('')
   const dispatch = useDispatch()
-  const counterValue = useSelector(({ counter }) => counter.value)
 
   const newGame = () => {
     const params = { playerName }
