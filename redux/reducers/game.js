@@ -24,7 +24,7 @@ export default function reducer(state = initialState, action) {
         return state
       } else {
         const cards = updateListItem(state.cards, { ...action.payload, selected: true })
-        return state.selectDisabled ? state : { ...state, cards }
+        return { ...state, cards }
       }
     }
     case 'game/matchCards': {
