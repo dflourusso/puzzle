@@ -9,10 +9,10 @@ import Cards from '../../components/Cards'
 export default function Game({ navigation }) {
   const dispatch = useDispatch()
   const cards = useSelector((state) => state.game.cards)
+  const rounds = useSelector((state) => state.game.rounds)
 
   const selectCard = (card) => {
     dispatch({ type: 'game/selectCard', payload: card })
-
   }
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Game({ navigation }) {
   return (
     <Container>
       <StatusBar style="auto" />
-      <RoundsText>Rodadas: 0</RoundsText>
+      <RoundsText>Rodadas: {rounds}</RoundsText>
       <Cards cards={cards} onPressCard={selectCard} />
     </Container>
   )

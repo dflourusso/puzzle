@@ -33,6 +33,8 @@ function* onCardSelection(action) {
     } else {
       yield put({ type: 'game/removeCardsSelection', payload: selectedCards })
     }
+    yield put({ type: 'game/incrementRound' })
+    
   }
 }
 
