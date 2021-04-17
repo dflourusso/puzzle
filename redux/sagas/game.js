@@ -47,6 +47,7 @@ function* onMatchCards(action) {
 
   if (selectedCards.length === 0) {
     yield put({ type: 'game/end', payload: game })
+    yield put({ type: 'game/setCards', payload: [] })
     AppNavigation.replace('Success', { playerName: game.playerName, rounds: game.rounds });
   }
 }
