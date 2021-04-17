@@ -25,12 +25,13 @@ export default function Ranking({ navigation }) {
     <Container>
       <StatusBar style="light" animated />
       <FlatList
-        style={{ flex: 1, }}
+        style={{ flex: 1 }}
         contentContainerStyle={ranking.length === 0 && { justifyContent: 'center', flex: 1 }}
         data={ranking}
         keyExtractor={item => item.playerName}
         renderItem={renderItem}
         ListEmptyComponent={<RankingEmpty />}
+        showsVerticalScrollIndicator={false}
       />
     </Container>
   )
