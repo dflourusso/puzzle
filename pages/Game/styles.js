@@ -5,7 +5,7 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${styles.primaryColor};
   justify-content: space-around;
-  padding: 20px 10px 60px 10px;
+  padding: 20px 10px 10px 10px;
 `;
 
 export const Row = styled.View`

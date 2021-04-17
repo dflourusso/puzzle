@@ -6,6 +6,7 @@ import { useRoute } from '@react-navigation/native'
 
 import { Container, Text, Row } from './styles'
 import Cards from '../../components/Cards'
+import { SafeAreaView } from '../../components/styles'
 
 export default function Game({ navigation }) {
   const route = useRoute()
@@ -28,13 +29,15 @@ export default function Game({ navigation }) {
   }, [ended])
 
   return (
-    <Container>
-      <StatusBar style="light" animated />
-      <Row>
-        <Text>Bom jogo {playerName}</Text>
-        <Text>Rodadas: {rounds}</Text>
-      </Row>
-      <Cards cards={cards} onPressCard={selectCard} />
-    </Container>
+    <SafeAreaView>
+      <Container>
+        <StatusBar style="light" animated />
+        <Row>
+          <Text>Bom jogo {playerName}</Text>
+          <Text>Rodadas: {rounds}</Text>
+        </Row>
+        <Cards cards={cards} onPressCard={selectCard} />
+      </Container>
+    </SafeAreaView>
   )
 }
