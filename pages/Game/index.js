@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRoute } from '@react-navigation/native'
 
-import { Container, RoundsText } from './styles'
+import { Container, Text, Row } from './styles'
 import Cards from '../../components/Cards'
 
 export default function Game({ navigation }) {
@@ -30,7 +30,10 @@ export default function Game({ navigation }) {
   return (
     <Container>
       <StatusBar style="light" animated />
-      <RoundsText>Rodadas: {rounds}</RoundsText>
+      <Row>
+        <Text>Bom jogo {playerName}</Text>
+        <Text>Rodadas: {rounds}</Text>
+      </Row>
       <Cards cards={cards} onPressCard={selectCard} />
     </Container>
   )
